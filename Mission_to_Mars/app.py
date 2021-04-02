@@ -5,9 +5,6 @@ import scrape_mars
 import os
 
 
-# Hidden authetication file
-#import config 
-
 # Create an instance of Flask app
 app = Flask(__name__)
 
@@ -26,7 +23,7 @@ def home():
 
     # Find data
     mars_dict = mongo.db.mars_dict.find_one()
-    # mars_dict = mongo.db.collection.find_one()
+
 
     # Return template and data
     return render_template("index.html", mars_dict=mars_dict)
@@ -36,14 +33,13 @@ def home():
 def scrape(): 
 
     # Run scrapped functions
-    # mars_dict = mongo.db.collection
     mars_dict = mongo.db.mars_dict
     mars_data = scrape_mars.news()
     mars_data = scrape_mars.image()
     mars_data = scrape_mars.facts()
     mars_data = scrape_mars.hemispheres()
     mars_dict.update({}, mars_data, upsert=True)
-    # mongo.db.collection.update({}, mars_data, upsert=True)
+   
 
     return redirect("/", code=302)
 
