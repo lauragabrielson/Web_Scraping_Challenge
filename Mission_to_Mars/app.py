@@ -39,7 +39,7 @@ def scrape():
     # mars_dict = mongo.db.collection
     mars_dict = mongo.db.mars_dict
     mars_data = scrape_mars.news()
-    #mars_data = scrape_mars.image()
+    mars_data = scrape_mars.image()
     mars_data = scrape_mars.facts()
     mars_data = scrape_mars.hemispheres()
     mars_dict.update({}, mars_data, upsert=True)

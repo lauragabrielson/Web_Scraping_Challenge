@@ -12,34 +12,66 @@
 
 </head>
 
-<body class="text-color: rgb(230, 193, 193;" style="background-color:rgb(230, 193, 193);">
+<body class="text-white;" style="background-color:rgb(10, 10, 10);">
     <div class="container">
 
         <!-- Jumbotron -->
         <div class="jumbotron text-center">
             <h1 class="display-4">Mission to Mars</h1>
-            <a class="btn btn-lg text-white" style="background-color:#351c12;" href="/scrape" role="button">Scrape New
+            <a class="btn btn-lg text-white" style="background-color:#9c3131dc;" href="/scrape" role="button">Scrape New
                 Data</a>
         </div>
 
         <!-- News Section -->
         <div class="container">
-            <h3>Latest Mars News: </h3>
-            <h6 style="color: #110101">{{ mars_dict.news_title }}</h6>
-            <p>{{ mars_dict.news_paragraph }}</p>
+            <h3 style="color:white">Latest Mars News: </h3>
+            <br>
+            <h6 style="color:white">{{ mars_dict.news_title }}</h6>
+            <p style="color:white">{{ mars_dict.news_paragraph }}</p>
         </div>
+
+        <!-- <div class="container">
+            <div class="row">
+                <!-- Left Image-->
+                <!-- <div class="col-lg-8 col-md-8 col-sm-12"></div>
+                    <h3 style="color:white; text-align:right">Featured Mars Image:</h3>
+                    <img src='{{ mars_dict.featured_image_url }}' style="max-width:100%; max-height: auto;" alt="Mars Featured Image"> -->
+
+                <!-- Table -->
+                <!-- <div class="col-lg-4 col-md-4 col-sm-12"></div>
+                <h3 style="color:white">Mars Facts:</h3>
+                <div style="color:white; max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
+                    {{ mars_dict.tables | safe }}
+                </div>
+            </div>
+      
+        </div>Container -->
+        <br>
 
         <div class="container">
             <div class="row">
                 <!-- Left Image-->
-                    <h3>Featured Mars Image:</h3>
+                <div class="col-lg-8 col-md-8 col-sm-12">
+                    <h3 style="color:white">Featured Mars Image:</h3>
+                    <br>
                     <img src="{{ mars_dict.featured_image_url }}" style="max-width:100%; max-height: auto;" alt="Mars Featured Image">
                 </div>
 
+                <!-- Weather Card -->
+                <div class="col-lg-4 col-md-4 col-sm-12">
+
+                    <div class="card" style="max-width: 450px;">
+                        <div class="card-body text-white bg-dark">
+                            <h3 class="card-title; text-align: center">Mars Facts:</h3>
+                            <!-- <p class="card-text">{{ mars_dict.weather_tweet }}</p> -->
+                        </div>
+
+                    </div>
+
                     <!-- Table -->
-                    <br>
-                    <h3>Mars Facts:</h3>
-                    <div style="max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
+                    <!-- <br> -->
+                    <!-- <h3>Mars Facts</h3> -->
+                    <div style="color:white; max-width: 450px; max-height: 150px; font-size: 15px; margin-bottom: 65px;">
                         {{ mars_dict.tables | safe }}
                     </div>
                 </div> <!-- col4 -->
@@ -47,7 +79,7 @@
         </div><!-- Container -->
 
         <!-- Cards -->
-        <h3 style="padding-top: 50px; margin-top: 100px; text-align: center;">Mars Hemispheres</h3>
+        <h3 style="padding-top:50px; margin-top: 100px; text-align: center; color:white">Mars Hemispheres:</h3>
         <div class="card-deck">
             <hr>
             <div class="col-md-12">

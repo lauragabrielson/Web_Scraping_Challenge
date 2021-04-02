@@ -43,32 +43,26 @@ def news():
         #browser.quit()
 
 # Featured Image
-def scrape_image():
+def image():
 
         # Initialize browser 
         browser = init_browser()
 
 
         # Visit url
-        featured_image_url = 'https://spaceimages-mars.com/image/featured/mars3.jpg'
-        browser.visit(featured_image_url)
+        space_url = 'https://spaceimages-mars.com/'
+        browser.visit(space_url)
 
         # html and parse
         image_html = browser.html
         soup = bs(image_html, 'html.parser')
 
         # Retrieve background-image url from style tag 
-        #image_url  = soup.find('article')['style']
+        image_url  = soup.find_all('img')[1]["src"]
+        featured_image_url = space_url + image_url
 
-#         # Websites
-#         main_url = 'https://spaceimages-mars.com/
-#         image_url = main_url + image_url
-
-#         # Display link to featured image
-#         image_url 
-
-#         # Dictionary entry from FEATURED IMAGE
-#         mars_dict['image_url'] = image_url 
+      # Dictionary entry from FEATURED IMAGE
+        mars_dict['featured_image_url'] = featured_image_url 
         
 #         browser.quit()
 
@@ -88,7 +82,7 @@ def facts():
         tables = pd.read_html(facts_url)
         mars_df = tables[1]
         #Assign columns
-        mars_df.columns = ['Mars Facts', 'Value']
+        mars_df.columns = ['Description', 'Value']
         html_table = mars_df.to_html(table_id="html_tbl_css",justify='left',index=False)
 
         # Dictionary entry from Mars Facts
